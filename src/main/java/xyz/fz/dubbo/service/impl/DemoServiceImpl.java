@@ -33,4 +33,12 @@ public class DemoServiceImpl implements DemoService {
         namedParameterJdbcTemplate.update(sql, params2);
         return name;
     }
+
+    @Override
+    public void record(String no) {
+        String sql = "insert into t_test(no) values(:no) ";
+        Map<String, Object> params = new HashMap<>();
+        params.put("no", no);
+        namedParameterJdbcTemplate.update(sql, params);
+    }
 }
